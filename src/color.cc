@@ -64,7 +64,7 @@ bool Color::SupportsColor(FILE* file) {
 #endif
   }
 
-#elif HAVE_UNISTD_H
+#elif ___HAVE_UNISTD_H
 
   return isatty(fileno(file));
 

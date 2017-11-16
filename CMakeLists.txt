@@ -44,7 +44,7 @@ elseif (${CMAKE_SYSTEM_NAME} STREQUAL "Emscripten")
   set(COMPILER_IS_MSVC 0)
 else ()
   set(COMPILER_IS_CLANG 0)
-  set(COMPILER_IS_GNU 0)
+  set(COMPILER_IS_GNU 1)
   set(COMPILER_IS_MSVC 0)
 endif ()
 
@@ -94,7 +94,7 @@ else ()
   #   interfaces, etc.
   # disable -Wpointer-arith: this is a GCC extension, and doesn't work in MSVC.
   add_definitions(
-    -Wall -Wextra -Werror -Wno-unused-parameter -Wpointer-arith -g -std=c++11
+    -Wall -Wextra -Wno-unused-parameter -Wpointer-arith -g -std=c++11
     -Wold-style-cast -Wuninitialized
   )
 

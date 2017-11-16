@@ -86,9 +86,21 @@
 #define WABT_CATCH_BAD_ALLOC_AND_EXIT
 #endif
 
-#define PRIindex "u"
+#define PRIindex "lu"
 #define PRIaddress "u"
 #define PRIoffset PRIzx
+
+// HAK FOR DEFECT STDLIB in arm-none-eabi-g++ stdlib
+#include <string>
+#include <sstream>
+namespace std {
+    template < typename T > std::string to_string( const T& n )
+    {
+      std::ostringstream stm ;
+      stm << n ;
+      return stm.str() ;
+    }
+}
 
 namespace wabt {
 

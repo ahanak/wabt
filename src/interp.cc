@@ -23,6 +23,7 @@
 #include <limits>
 #include <type_traits>
 #include <vector>
+#include "math.h"
 
 #include "src/cast.h"
 #include "src/stream.h"
@@ -1025,7 +1026,7 @@ ValueTypeRep<T> FloatFloor(ValueTypeRep<T> v_rep) {
 // f{32,64}.trunc
 template <typename T>
 ValueTypeRep<T> FloatTrunc(ValueTypeRep<T> v_rep) {
-  auto result = ToRep(std::trunc(FromRep<T>(v_rep)));
+  auto result = ToRep(trunc(FromRep<T>(v_rep)));
   if (WABT_UNLIKELY(FloatTraits<T>::IsNan(result))) {
     result |= FloatTraits<T>::kQuietNanBit;
   }
@@ -1035,7 +1036,7 @@ ValueTypeRep<T> FloatTrunc(ValueTypeRep<T> v_rep) {
 // f{32,64}.nearest
 template <typename T>
 ValueTypeRep<T> FloatNearest(ValueTypeRep<T> v_rep) {
-  auto result = ToRep(std::nearbyint(FromRep<T>(v_rep)));
+  auto result = ToRep(nearbyint(FromRep<T>(v_rep)));
   if (WABT_UNLIKELY(FloatTraits<T>::IsNan(result))) {
     result |= FloatTraits<T>::kQuietNanBit;
   }

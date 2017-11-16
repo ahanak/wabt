@@ -48,10 +48,10 @@ WABT_STATIC_ASSERT(WABT_ARRAY_SIZE(g_reloc_type_name) == kRelocTypeCount);
 Result ReadFile(const char* filename, std::vector<uint8_t>* out_data) {
   FILE* infile = fopen(filename, "rb");
   if (!infile) {
-    const char format[] = "unable to read file %s";
-    char msg[PATH_MAX + sizeof(format)];
-    wabt_snprintf(msg, sizeof(msg), format, filename);
-    perror(msg);
+    //uconst char format[] = "unable to read file %s";
+    //char msg[PATH_MAX + sizeof(format)];
+    //wabt_snprintf(msg, sizeof(msg), format, filename);
+    //perror(msg);
     return Result::Error;
   }
 
